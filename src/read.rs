@@ -1068,13 +1068,13 @@ pub(crate) fn central_header_to_zip_file<R: Read + Seek>(
         ));
     }
 
-    let data_start = find_data_start(&file, reader)?;
+    // let data_start = find_data_start(&file, reader)?;
 
-    if data_start > central_directory.directory_start {
-        return Err(InvalidArchive(
-            "File data can't start after the central directory",
-        ));
-    }
+    // if data_start > central_directory.directory_start {
+    //     return Err(InvalidArchive(
+    //         "File data can't start after the central directory",
+    //     ));
+    // }
 
     reader.seek(SeekFrom::Start(central_header_end))?;
     Ok(file)
